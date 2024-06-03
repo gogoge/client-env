@@ -8,6 +8,7 @@ spec:
   - "*"
   gateways:
   - nginx/nginx-gateway  # 必须包括命名空间
+  - nginx/nginx-gateway-internal  # 必须包括命名空间
   http:
   - match:
     - uri:

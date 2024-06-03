@@ -9,3 +9,9 @@ helm install istio-ingress istio/gateway -n istio-ingress \
   --set service.annotations."service\.beta\.kubernetes\.io/aws-load-balancer-scheme"="internet-facing" \
   --set service.annotations."service\.beta\.kubernetes\.io/aws-load-balancer-attributes"="load_balancing.cross_zone.enabled=true" \
   --wait
+
+helm install istio-ingress-internal istio/gateway -n istio-ingress \
+  --set labels.istio=ingressgateway-internal \
+  --set service.annotations."service\.beta\.kubernetes\.io/aws-load-balancer-scheme"="internal" \
+  --set service.annotations."service\.beta\.kubernetes\.io/aws-load-balancer-attributes"="load_balancing.cross_zone.enabled=true" \
+  --wait

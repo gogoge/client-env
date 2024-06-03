@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: nginx-gateway-internal
+  namespace: nginx 
+spec:
+  selector:
+    istio: ingressgateway-internal # 需要与Istio Ingress Gateway的选择器标签匹配
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+
