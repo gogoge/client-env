@@ -1,0 +1,23 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: ekslab
+  region: us-east-1
+nodeGroups:
+  - name: ng-1
+    instanceType: t4g.medium
+    desiredCapacity: 2
+    ssh:
+      publicKeyName: webb-lab
+  - name: ng-2
+    minSize: 1
+    maxSize: 3
+    amiFamily: Bottlerocket
+    ami: ami-06e98307b1b83908a
+    instancesDistribution:
+      maxPrice: 0.2
+      instanceTypes: ["t4g.medium"]
+      onDemandBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 50
+    ssh:
+      publicKeyName: webb-lab 
