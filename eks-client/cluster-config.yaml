@@ -1,23 +1,43 @@
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
-  name: ekslab
+  name: eks-lab
   region: us-east-1
-nodeGroups:
-  - name: ng-1
-    instanceType: t4g.medium
+
+vpc:
+  id: 'vpc-0cc0b15b8d103b44c'
+  subnets:
+    private:
+      private-1:
+        id: 'subnet-0662b56b19b7dcbdb'
+      private-2:
+        id: 'subnet-0061e41b45fe6723a'
+    public:
+      public-1:
+        id: 'subnet-0025bcc92730a0629'
+      public-2:
+        id: 'subnet-00fa48620b0701521'
+
+managedNodeGroups:
+  - name: public
+    privateNetworking: false
+    instanceType: t3a.medium
     desiredCapacity: 2
-    ssh:
-      publicKeyName: webb-lab
-  - name: ng-2
     minSize: 1
     maxSize: 3
-    amiFamily: Bottlerocket
-    ami: ami-06e98307b1b83908a
-    instancesDistribution:
-      maxPrice: 0.2
-      instanceTypes: ["t4g.medium"]
-      onDemandBaseCapacity: 0
-      onDemandPercentageAboveBaseCapacity: 50
+    subnets:
+    - 'subnet-0025bcc92730a0629'
+    - 'subnet-00fa48620b0701521'
     ssh:
-      publicKeyName: webb-lab 
+      publicKeyName: eks-node
+  - name: private 
+    privateNetworking: true
+    instanceType: t3a.medium
+    desiredCapacity: 2
+    minSize: 1
+    maxSize: 3
+    subnets:
+    - 'subnet-0662b56b19b7dcbdb'
+    - 'subnet-0061e41b45fe6723a'
+    ssh:
+      publicKeyName: eks-node

@@ -3,3 +3,4 @@ aws/
 get_helm.sh
 kubectl
 kubectl.sha256
+eks-node.pem
