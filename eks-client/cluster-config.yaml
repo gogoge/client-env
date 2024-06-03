@@ -5,18 +5,18 @@ metadata:
   region: us-east-1
 
 vpc:
-  id: 'vpc-0cc0b15b8d103b44c'
+  id: 'vpc-082d701656feacd51'
   subnets:
     private:
       private-1:
-        id: 'subnet-0662b56b19b7dcbdb'
+        id: 'subnet-08c75ccae88b90838'
       private-2:
-        id: 'subnet-0061e41b45fe6723a'
+        id: 'subnet-05581265734b17c70'
     public:
       public-1:
-        id: 'subnet-0025bcc92730a0629'
+        id: 'subnet-082f50031b2e44930'
       public-2:
-        id: 'subnet-00fa48620b0701521'
+        id: 'subnet-06e8c0cb2ee006b3a'
 
 managedNodeGroups:
   - name: public
@@ -26,10 +26,10 @@ managedNodeGroups:
     minSize: 1
     maxSize: 3
     subnets:
-    - 'subnet-0025bcc92730a0629'
-    - 'subnet-00fa48620b0701521'
+    - 'subnet-082f50031b2e44930'
+    - 'subnet-06e8c0cb2ee006b3a'
     ssh:
-      publicKeyName: eks-node
+      publicKeyName: acg0603c
   - name: private 
     privateNetworking: true
     instanceType: t3a.medium
@@ -37,7 +37,7 @@ managedNodeGroups:
     minSize: 1
     maxSize: 3
     subnets:
-    - 'subnet-0662b56b19b7dcbdb'
-    - 'subnet-0061e41b45fe6723a'
+    - 'subnet-08c75ccae88b90838'
+    - 'subnet-05581265734b17c70'
     ssh:
-      publicKeyName: eks-node
+      publicKeyName: acg0603c
