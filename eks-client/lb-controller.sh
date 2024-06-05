@@ -1,5 +1,5 @@
 CLUSTER_NAME=eks-lab
-ACCOUNT_ID=515477624492
+ACCOUNT_ID=637423569418
 REGION=us-east-1
 
 curl -o iam_policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/install/iam_policy.json

@@ -5,18 +5,18 @@ metadata:
   region: us-east-1
 
 vpc:
-  id: 'vpc-082d701656feacd51'
+  id: 'vpc-034419acc35c6bbb5'
   subnets:
     private:
       private-1:
-        id: 'subnet-08c75ccae88b90838'
+        id: 'subnet-0bd5a97f30875a529'
       private-2:
-        id: 'subnet-05581265734b17c70'
+        id: 'subnet-09b62807b05e7ee22'
     public:
       public-1:
-        id: 'subnet-082f50031b2e44930'
+        id: 'subnet-0982f0cda58ea4a6f'
       public-2:
-        id: 'subnet-06e8c0cb2ee006b3a'
+        id: 'subnet-06f613624042adf13'
 
 managedNodeGroups:
   - name: public
@@ -26,10 +26,10 @@ managedNodeGroups:
     minSize: 1
     maxSize: 3
     subnets:
-    - 'subnet-082f50031b2e44930'
-    - 'subnet-06e8c0cb2ee006b3a'
+    - 'subnet-0982f0cda58ea4a6f'
+    - 'subnet-06f613624042adf13'
     ssh:
-      publicKeyName: acg0603c
+      publicKeyName: acg0605a
   - name: private 
     privateNetworking: true
     instanceType: t3a.medium
@@ -37,7 +37,7 @@ managedNodeGroups:
     minSize: 1
     maxSize: 3
     subnets:
-    - 'subnet-08c75ccae88b90838'
-    - 'subnet-05581265734b17c70'
+    - 'subnet-0bd5a97f30875a529'
+    - 'subnet-09b62807b05e7ee22'
     ssh:
-      publicKeyName: acg0603c
+      publicKeyName: acg0605a
