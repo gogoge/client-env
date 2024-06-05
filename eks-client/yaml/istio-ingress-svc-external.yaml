@@ -1,0 +1,60 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: istio-ingress
+    meta.helm.sh/release-namespace: istio-ingress
+    service.beta.kubernetes.io/aws-load-balancer-attributes: load_balancing.cross_zone.enabled=true
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+    service.beta.kubernetes.io/aws-load-balancer-type: external
+  creationTimestamp: "2024-06-05T03:45:01Z"
+  finalizers:
+  - service.k8s.aws/resources
+  labels:
+    app: istio-ingress
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: istio-ingress
+    app.kubernetes.io/version: 1.22.1
+    helm.sh/chart: gateway-1.22.1
+    istio: ingressgateway
+  name: istio-ingress
+  namespace: istio-ingress
+  resourceVersion: "5595"
+  uid: ddf08da1-9b0a-4600-8e1a-242e27e80a75
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 172.20.202.185
+  clusterIPs:
+  - 172.20.202.185
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  loadBalancerClass: service.k8s.aws/nlb
+  ports:
+  - name: status-port
+    nodePort: 30242
+    port: 15021
+    protocol: TCP
+    targetPort: 15021
+  - name: http2
+    nodePort: 31172
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  - name: https
+    nodePort: 31743
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  selector:
+    app: istio-ingress
+    istio: ingressgateway
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - hostname: k8s-istioing-istioing-b1cfff2cab-2af0156ce0e50340.elb.us-east-1.amazonaws.com
