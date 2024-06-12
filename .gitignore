@@ -6,3 +6,5 @@ kubectl.sha256
 eks-node.pem
 eks-client/istio-*/
 iam_policy.json
+terraform.tfstate
+terraform.tfstate.backup 
