@@ -42,4 +42,5 @@ sudo apt-get install -y kubelet kubeadm kubectl
 #-------------------------------------------------------
 sudo systemctl enable --now kubelet
 
-
+sudo apt update
+sudo apt install -y apt-transport-https curl jq nmap iproute2 bridge-utils
